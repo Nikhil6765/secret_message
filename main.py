@@ -6,4 +6,6 @@ def get_task():
 
 
 def get_message():
-    message=
+    message=simpledialog.askstring('Message','Enter the secret message: ')
+    return message
+
