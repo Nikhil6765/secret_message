@@ -33,7 +33,18 @@ def get_odd_letters(message):
         if not is_even(counter):
             odd_letters.append(message[counter])
     return odd_letters
+def encrypt(message):
+    swapped_message=swap_letters(message)
+    enycrypted_message=''.join(reversed(swapped_message))
 
+    return enycrypted_message
+def decrypt(message):
+    unreversed_message=''.join(reversed(message))
+    decrypted_message=''.join(reversed(unreversed_message))
+    return decrypted_message
+
+
+    return enycrypted_message
 
 def get_task():
     task=simpledialog.askstring('Task', 'Do you want to encrypt or decrypt')
@@ -50,12 +61,12 @@ while True:
     task=get_task()
     if task=='encrypt':
         message=get_message()
-        encrypted=swap_letters(message)
+        encrypted=encrypt(message)
         messagebox.showinfo('Ciphertext of the secret message is : ',encrypted)
     
     elif task=='decrypt':
         message=get_message()
-        deccrypted=swap_letters(message)
+        deccrypted=decrypt(message)
         messagebox.showinfo('Plaintext of the secret message is : ',deccrypted)
 
     else:
